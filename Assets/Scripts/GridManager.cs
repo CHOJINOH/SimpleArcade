@@ -1,15 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
 
-    [Tooltip("°İÀÚ Å©±â (X, Y)")]
+    [Tooltip("ê²©ì í¬ê¸° (X, Y)")]
     public Vector2Int gridSize = new Vector2Int(8, 8);
-    [Tooltip("¼¿ ÇÏ³ªÀÇ ¿ùµå ´ÜÀ§ Å©±â")]
+    [Tooltip("ì…€ í•˜ë‚˜ì˜ ì›”ë“œ ë‹¨ìœ„ í¬ê¸°")]
     public float cellSize = 1f;
 
-    // ¿ùµå ÁÂÇ¥ (0,0) ¼¿ÀÇ ¿ŞÂÊ ¾Æ·¡ ¸ğ¼­¸® À§Ä¡
+    // ì›”ë“œ ì¢Œí‘œ (0,0) ì…€ì˜ ì™¼ìª½ ì•„ë˜ ëª¨ì„œë¦¬ ìœ„ì¹˜
     private Vector3 origin;
 
     void Awake()
@@ -21,8 +21,8 @@ public class GridManager : MonoBehaviour
         }
         Instance = this;
 
-        // ÀÌ ¿ÀºêÁ§Æ® À§Ä¡¸¦ °İÀÚ Áß¾ÓÀ¸·Î µÎ°í,
-        // ¿ŞÂÊ ¾Æ·¡ ¿øÁ¡À» °è»ê
+        // ì´ ì˜¤ë¸Œì íŠ¸ ìœ„ì¹˜ë¥¼ ê²©ì ì¤‘ì•™ìœ¼ë¡œ ë‘ê³ ,
+        // ì™¼ìª½ ì•„ë˜ ì›ì ì„ ê³„ì‚°
         origin = transform.position
                - new Vector3(gridSize.x * cellSize / 2f,
                              gridSize.y * cellSize / 2f,
@@ -30,8 +30,8 @@ public class GridManager : MonoBehaviour
     }
 
     /// <summary>
-    /// (0,0) ~ (gridSize.x-1, gridSize.y-1) ÁÂÇ¥¸¦
-    /// ¿ùµå ÁÂÇ¥·Î º¯È¯ (¼¿ Áß½É)
+    /// (0,0) ~ (gridSize.x-1, gridSize.y-1) ì¢Œí‘œë¥¼
+    /// ì›”ë“œ ì¢Œí‘œë¡œ ë³€í™˜ (ì…€ ì¤‘ì‹¬)
     /// </summary>
     public Vector3 GridToWorld(Vector2Int cell)
     {

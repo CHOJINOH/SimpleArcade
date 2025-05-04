@@ -1,16 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Tooltip("·£´ı ¿öÅ© °£°İ (ÃÊ)")]
+    [Tooltip("ëœë¤ ì›Œí¬ ê°„ê²© (ì´ˆ)")]
     public float moveInterval = 0.5f;
 
     private Vector2Int currentPos;
 
     void Start()
     {
-        // ±×¸®µå ³» ·£´ı ½ÃÀÛ
+        // ê·¸ë¦¬ë“œ ë‚´ ëœë¤ ì‹œì‘
         currentPos = new Vector2Int(
             Random.Range(0, GridManager.Instance.gridSize.x),
             Random.Range(0, GridManager.Instance.gridSize.y)
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            // gameTime À¸·Î ¸ØÃß·Á¸é Time.timeScale=0 ÀÌ±â ¶§¹®¿¡ ¿©±â¼­ ¸ØÃä´Ï´Ù
+            // gameTime ìœ¼ë¡œ ë©ˆì¶”ë ¤ë©´ Time.timeScale=0 ì´ê¸° ë•Œë¬¸ì— ì—¬ê¸°ì„œ ë©ˆì¶¥ë‹ˆë‹¤
             yield return new WaitForSeconds(moveInterval);
             if (GameManager.Instance.IsGameOver) yield break;
             RandomWalk();

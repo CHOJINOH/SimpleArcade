@@ -1,17 +1,17 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
     public static ItemManager Instance;
 
-    [Tooltip("1¡¿1 Å©±âÀÇ ¾ÆÀÌÅÛ ÇÁ¸®ÆÕ")]
+    [Tooltip("1Ã—1 í¬ê¸°ì˜ ì•„ì´í…œ í”„ë¦¬íŒ¹")]
     public GameObject itemPrefab;
 
-    [Tooltip("ÃÖ´ë ¹èÄ¡ °¡´ÉÇÑ ¾ÆÀÌÅÛ °³¼ö")]
+    [Tooltip("ìµœëŒ€ ë°°ì¹˜ ê°€ëŠ¥í•œ ì•„ì´í…œ ê°œìˆ˜")]
     public int maxItems = 3;
 
-    // ÇöÀç ¾À¿¡ ¶ç¿î ¾ÆÀÌÅÛ ¸ñ·Ï
+    // í˜„ì¬ ì”¬ì— ë„ìš´ ì•„ì´í…œ ëª©ë¡
     private readonly List<GameObject> items = new List<GameObject>();
     private readonly List<Vector2Int> itemPositions = new List<Vector2Int>();
 
@@ -21,10 +21,10 @@ public class ItemManager : MonoBehaviour
         Instance = this;
     }
 
-    /// <summary>ÇöÀç ¹èÄ¡µÈ ¾ÆÀÌÅÛ ¼ö</summary>
+    /// <summary>í˜„ì¬ ë°°ì¹˜ëœ ì•„ì´í…œ ìˆ˜</summary>
     public int CurrentItemCount => items.Count;
 
-    /// <summary>»õ ¾ÆÀÌÅÛ ¹èÄ¡ °¡´É ¿©ºÎ</summary>
+    /// <summary>ìƒˆ ì•„ì´í…œ ë°°ì¹˜ ê°€ëŠ¥ ì—¬ë¶€</summary>
     public bool CanSpawn() => items.Count < maxItems;
 
     public void SpawnItem(Vector2Int pos)

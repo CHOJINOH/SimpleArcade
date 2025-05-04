@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,14 +7,14 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("½Ç½Ã°£ UI")]
+    [Header("ì‹¤ì‹œê°„ UI")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
 
-    [Header("Ç×»ó º¸ÀÌ´Â High Score")]
+    [Header("í•­ìƒ ë³´ì´ëŠ” High Score")]
     public TextMeshProUGUI highScoreText;
 
-    [Header("°á°ú È­¸é (ÃÊ±â¿¡´Â ºñÈ°¼º)")]
+    [Header("ê²°ê³¼ í™”ë©´ (ì´ˆê¸°ì—ëŠ” ë¹„í™œì„±)")]
     public GameObject resultPanel;
     public TextMeshProUGUI finalScoreText;
     public Button restartButton;
@@ -28,14 +28,14 @@ public class UIManager : MonoBehaviour
         }
         Instance = this;
 
-        // °á°ú ÆĞ³Î°ú ¹öÆ°Àº Ã³À½¿¡ ¼û±è
+        // ê²°ê³¼ íŒ¨ë„ê³¼ ë²„íŠ¼ì€ ì²˜ìŒì— ìˆ¨ê¹€
         resultPanel.SetActive(false);
         restartButton.gameObject.SetActive(false);
 
-        // ¸®½ºÅ¸Æ® ¹öÆ° Å¬¸¯ ¸®½º³Ê
+        // ë¦¬ìŠ¤íƒ€íŠ¸ ë²„íŠ¼ í´ë¦­ ë¦¬ìŠ¤ë„ˆ
         restartButton.onClick.AddListener(RestartGame);
 
-        // High Score ÃÊ±âÈ­ (Ã¹ °ÔÀÓÀº 0)
+        // High Score ì´ˆê¸°í™” (ì²« ê²Œì„ì€ 0)
         int savedHigh = PlayerPrefs.GetInt("HighScore", 0);
         highScoreText.text = $"High Score: {savedHigh}";
     }
@@ -54,14 +54,14 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// °ÔÀÓ Á¾·á ½Ã È£Ãâ
+    /// ê²Œì„ ì¢…ë£Œ ì‹œ í˜¸ì¶œ
     /// </summary>
     public void ShowResult(int finalScore)
     {
-        // ÃÖÁ¾ Á¡¼ö¸¸ Ç¥½Ã
+        // ìµœì¢… ì ìˆ˜ë§Œ í‘œì‹œ
         finalScoreText.text = $"Your Score: {finalScore}";
 
-        // »õ ÃÖ°íÁ¡ÀÌ¸é ÀúÀå ¹× UI °»½Å
+        // ìƒˆ ìµœê³ ì ì´ë©´ ì €ì¥ ë° UI ê°±ì‹ 
         int savedHigh = PlayerPrefs.GetInt("HighScore", 0);
         if (finalScore > savedHigh)
         {
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
             highScoreText.text = $"High Score: {savedHigh}";
         }
 
-        // °á°ú ÆĞ³Î/¹öÆ° º¸ÀÌ±â
+        // ê²°ê³¼ íŒ¨ë„/ë²„íŠ¼ ë³´ì´ê¸°
         resultPanel.SetActive(true);
         restartButton.gameObject.SetActive(true);
     }

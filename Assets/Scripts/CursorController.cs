@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
@@ -14,19 +14,19 @@ public class CursorController : MonoBehaviour
     {
         if (GameManager.Instance.IsGameOver) return;
 
-        // ¹æÇâÅ° ÀÌµ¿
+        // ë°©í–¥í‚¤ ì´ë™
         if (Input.GetKeyDown(KeyCode.LeftArrow)) cursorPos += Vector2Int.left;
         else if (Input.GetKeyDown(KeyCode.RightArrow)) cursorPos += Vector2Int.right;
         else if (Input.GetKeyDown(KeyCode.UpArrow)) cursorPos += Vector2Int.up;
         else if (Input.GetKeyDown(KeyCode.DownArrow)) cursorPos += Vector2Int.down;
 
-        // ±×¸®µå ¹üÀ§ Å¬·¥ÇÎ
+        // ê·¸ë¦¬ë“œ ë²”ìœ„ í´ë¨í•‘
         cursorPos.x = Mathf.Clamp(cursorPos.x, 0, GridManager.Instance.gridSize.x - 1);
         cursorPos.y = Mathf.Clamp(cursorPos.y, 0, GridManager.Instance.gridSize.y - 1);
 
         transform.position = GridManager.Instance.GridToWorld(cursorPos);
 
-        // ½ºÆäÀÌ½º ¡æ ¾ÆÀÌÅÛ ¹èÄ¡ (ÃÖ´ë 3°³)
+        // ìŠ¤í˜ì´ìŠ¤ â†’ ì•„ì´í…œ ë°°ì¹˜ (ìµœëŒ€ 3ê°œ)
         if (Input.GetKeyDown(KeyCode.Space) && ItemManager.Instance.CanSpawn())
         {
             ItemManager.Instance.SpawnItem(cursorPos);

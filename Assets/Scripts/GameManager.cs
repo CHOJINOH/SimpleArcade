@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     [HideInInspector] public int score = 0;
-    [Tooltip("ÃÑ ÇÃ·¹ÀÌ ½Ã°£ (ÃÊ)")]
+    [Tooltip("ì´ í”Œë ˆì´ ì‹œê°„ (ì´ˆ)")]
     public float gameTime = 90f;
 
-    /// <summary>°ÔÀÓ Á¾·á ¿©ºÎ</summary>
+    /// <summary>ê²Œì„ ì¢…ë£Œ ì—¬ë¶€</summary>
     public bool IsGameOver { get; private set; } = false;
 
     void Awake()
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         IsGameOver = true;
-        Time.timeScale = 0f; // ¿ÏÀü Á¤Áö
+        Time.timeScale = 0f; // ì™„ì „ ì •ì§€
         UIManager.Instance.ShowResult(score);
     }
 }
